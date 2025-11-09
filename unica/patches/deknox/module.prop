@@ -1,4 +1,4 @@
 id=deknox
-name=De-Knox
-author=ExtremeXT,tisenu100
-description=Remove unsupported Knox features.
+name=Nuke Knox
+author=salvogiangri, alex41370, ExtremeXT, PeterKnecht93
+description=Removes Knox bloat (DualDAR, HDM, etc).
