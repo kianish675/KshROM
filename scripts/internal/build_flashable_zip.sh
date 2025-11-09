@@ -18,6 +18,8 @@
 
 # shellcheck disable=SC2162
 
+ROM_STATUS="UNOFFICIAL"
+
 set -Eeuo pipefail
 
 # [
@@ -52,27 +54,35 @@ PRINT_HEADER()
     fi
 
     echo    'ui_print(" ");'
-    echo    'ui_print("****************************************");'
+    echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
-    echo -n "UN1CA-A70 Core Version $ROM_VERSION"
+    echo -n "Welcome to KshROM Axion 1.6.5 for the Galaxy A70!"
     echo    '");'
-    echo    'ui_print("UN1CA-A70 by Tisenu100");'
-    echo    'ui_print("UN1CA base by salvo_giangri et al.,");'
-    echo    'ui_print("****************************************");'
+    echo    'ui_print("KshROM Created by Kianish675 @XDAforums");'
+    echo    'ui_print("Initial UN1CA build system coded by salvo_giangri @XDAforums");'
+    echo    'ui_print("Special thanks to Tisenu100, ExtremeXT and other people!");'
+    echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
-    echo -n "Base from: $(GET_PROP "ro.product.system.model" "$WORK_DIR/system/system/build.prop")"
-    echo    '");'
-    echo -n 'ui_print("'
-    echo -n "Base version: $(GET_PROP "ro.system.build.version.incremental" "$WORK_DIR/system/system/build.prop")"
+    echo -n "One UI: $ONEUI_VERSION"
     echo    '");'
     echo -n 'ui_print("'
-    echo -n "One UI version: $ONEUI_VERSION"
+    echo -n "Source: samsung/a73xqxx/qssi:15/AP3A.240905.015.A2/A736BXXSAFYH2:user/release-keys"
     echo    '");'
     echo -n 'ui_print("'
-    echo -n "Fingerprint: $(GET_PROP "ro.system.build.fingerprint" "$WORK_DIR/system/system/build.prop")"
+    echo -n "Target: samsung/a70qxx/a70q:11/RP1A.200720.012/A705FNXXU5DXD2:user/release-keys"
     echo    '");'
-    echo    'ui_print("****************************************");'
-}
+    echo    'ui_print("****************************************************");'
+    echo    'ui_print("After installation, it is highly recommended to FORMAT DATA as follows:");'
+    echo    'ui_print("     Factory Reset -> Format Data");'
+    echo    'ui_print("Hint: Found Bugs? Report bugs at t.me/kshrom");'
+    echo    'ui_print(" ");'
+    echo    'ui_print("If you decide to not format, unexpected issues may occur and no support will be given.");'
+    echo    'ui_print(" ");'
+    echo    'ui_print("Proceeding with install..");'
+    echo    'ui_print("Checking device..");' 
+    echo    'ui_print("   -> Galaxy A70");'
+    echo    'ui_print("kianish is noob developer ez");'
+} >> "$SCRIPT_FILE"
 
 GET_SPARSE_IMG_SIZE()
 {
@@ -106,42 +116,31 @@ GENERATE_UPDATER_SCRIPT()
     [ -f "$TMP_DIR/system.new.dat.br" ] && HAS_SYSTEM=true
     [ -f "$TMP_DIR/vendor.new.dat.br" ] && HAS_VENDOR=true
     [ -f "$TMP_DIR/product.new.dat.br" ] && HAS_PRODUCT=true
-
-    [ -f "$SCRIPT_FILE" ] && rm -f "$SCRIPT_FILE"
-    touch "$SCRIPT_FILE"
+    
     {
-            echo -n 'getprop("ro.build.product") == "'
-            echo -n "a70q"
-            echo -n '" || '
-            echo -n 'abort("E3004: This package is for \"'
-            echo -n "a70q"
-            echo    '\" devices; this is a \"" + getprop("ro.product.device") + "\".");'
-
-        PRINT_HEADER
-
         if $HAS_SYSTEM; then
             echo -e "\n# Patch partition system\n"
-            echo    'ui_print("Patching system image unconditionally...");'
+            echo    'ui_print("Patching system unconditionally..");'
             echo -n 'show_progress(0.500000, 0);'
             echo    'block_image_update("/dev/block/platform/soc/1d84000.ufshc/by-name/system", package_extract_file("system.transfer.list"), "system.new.dat.br", "system.patch.dat") ||'
-            echo    '  abort("E1001: Failed to update system image.");'
+            echo    '  abort("E1001: Failed to Update the system.");'
         fi
         if $HAS_VENDOR; then
             echo -e "\n# Patch partition vendor\n"
-            echo    'ui_print("Patching vendor image unconditionally...");'
+            echo    'ui_print("Patching vendor unconditionally..");'
             echo    'show_progress(0.100000, 0);'
             echo    'block_image_update("/dev/block/platform/soc/1d84000.ufshc/by-name/vendor", package_extract_file("vendor.transfer.list"), "vendor.new.dat.br", "vendor.patch.dat") ||'
-            echo    '  abort("E2001: Failed to update vendor image.");'
+            echo    '  abort("E2001: Failed to update the vendor.");'
         fi
         if $HAS_PRODUCT; then
             echo -e "\n# Patch partition product\n"
-            echo    'ui_print("Patching product image unconditionally...");'
+            echo    'ui_print("Patching product unconditionally..");'
             echo    'show_progress(0.100000, 0);'
             echo    'block_image_update("/dev/block/platform/soc/1d84000.ufshc/by-name/product", package_extract_file("product.transfer.list"), "vendor.new.dat.br", "product.patch.dat") ||'
-            echo    '  abort("E2001: Failed to update product image.");'
+            echo    '  abort("E2001: Failed to update product.");'
         fi
         if $HAS_DTBO; then
-            echo    'ui_print("Full Patching dtbo.img img...");'
+            echo    'ui_print("Completely Patching dtbo..");'
             echo -n 'package_extract_file("dtbo.img", "'
             echo    '/dev/block/bootdevice/by-name/dtbo");'
         fi
@@ -175,7 +174,7 @@ GENERATE_BUILD_INFO()
     true
 }
 
-FILE_NAME="UN1CA_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
+FILE_NAME="KshROM_${ROM_STATUS}_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
 CERT_NAME="aosp_testkey"
 $ROM_IS_OFFICIAL && [ -f "$SRC_DIR/security/unica_ota.pk8" ] && CERT_NAME="unica_ota"
 # ]
