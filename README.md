@@ -31,7 +31,6 @@ I am not responsible for bricked devices, dead SD cards, or anything else that g
 - EroFS Partitions
 - All software features from A73 5G
 - A bit of Optimizations sprinkled on top
-- Magisk Out of the box
 - Network Optimizations
 - Adaptive Brightness Support
 - RIL Funtional
