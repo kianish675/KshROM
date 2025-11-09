@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+<privapp-permissions package="com.samsung.android.offline.languagemodel">
+<permission name="com.samsung.android.permission.BROADCAST_GEN_AI_RECLAIM_TRIGGER"/>
+<permission name="android.permission.WAKE_LOCK"/>
+<permission name="android.permission.WRITE_SETTINGS"/>
+<permission name="com.samsung.android.offline.languagemodel.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+</privapp-permissions>
+</permissions>

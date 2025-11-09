@@ -1,0 +1,10 @@
+<permissions>
+    <privapp-permissions package="com.samsung.android.smartcopywriting">
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="com.samsung.android.provider.indexing.permission.ACCESS_PROVIDER"/>
+        <permission name="android.permission.REAL_GET_TASKS"/>
+        <permission name="android.permission.SCHEDULE_EXACT_ALARM"/>
+        <permission name="android.permission.GRANT_RUNTIME_PERMISSIONS"/>
+    </privapp-permissions>
+</permissions>

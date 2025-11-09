@@ -1,0 +1,12 @@
+{
+  "version": "4.2",
+  "framework": "tflite",
+  "precision": "dynamic",
+  "runtime": "cpu",
+  "org_model_name": "exp86ss_051.tflite",
+  "model_path": [
+    "/system/etc/objectremoval/db/interactiveseg.tflite"
+  ]
+}
+
+

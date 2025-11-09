@@ -1,0 +1,11 @@
+<permissions>
+    <privapp-permissions package="com.samsung.android.smartmeeting">
+        <permission name="android.permission.MODIFY_PHONE_STATE"/>
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.REAL_GET_TASKS"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+		<permission name="android.permission.INTERACT_ACROSS_USERS" />
+		<permission name="android.permission.STATUS_BAR"/>
+        <permission name="com.sec.android.permission.IN_APP_SOUND"/>
+    </privapp-permissions>
+</permissions>
