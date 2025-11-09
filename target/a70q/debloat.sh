@@ -27,7 +27,7 @@ system/app/WifiRROverlayAppH2E
 
 # Device Specific Overlay
 PRODUCT_DEBLOAT+="
-overlay/framework-res__a36xqnaxx__auto_generated_rro_product.apk
+overlay/framework-res__a73xqxx__auto_generated_rro_product.apk
 "
 
 # Google Assistant
