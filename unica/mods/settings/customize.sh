@@ -1,3 +1,9 @@
+ROM_STATUS=""
+$ROM_IS_OFFICIAL || ROM_STATUS=" UNOFFICIAL"
+VALUE="$(GET_PROP "$WORK_DIR/system/system/build.prop" "ro.build.display.id")"
+
+echo "- Enabling BSOH in settings.. "
+
 FTP=(
 "$APKTOOL_DIR/system/priv-app/SecSettings/SecSettings.apk/smali_classes4/com/samsung/android/settings/deviceinfo/batteryinfo/BatteryRegulatoryPreferenceController.smali"
 "$APKTOOL_DIR/system/priv-app/SecSettings/SecSettings.apk/smali_classes4/com/samsung/android/settings/deviceinfo/batteryinfo/SecBatteryFirstUseDatePreferenceController.smali"
@@ -13,14 +19,12 @@ if [ -f "$SMALI_FILE" ]; then
     sed -i "s/ro.build.official.release/ro.build.2ndbrand/g" "$SMALI_FILE"
 fi
 
+echo "- Setting props.. "
 SET_PROP "system" "fw.max_users" "8"
 SET_PROP "system" "fw.show_multiuserui" "1"
 SET_PROP "system" "persist.device_config.activity_manager_native_boot.use_freezer" "true"
-
-SET_PROP "system" "ro.build.display.id" "KshROM OFFICIAL v1.6.5-0972d6ef-a70q+ (AP3A.240905.015.A2.A736BXXSAFYH2)"
+SET_PROP "system" "ro.build.display.id" "KshROM$ROM_STATUS $ROM_CODENAME $ROM_VERSION - $TARGET_CODENAME ($VALUE)"
 SET_PROP "system" "wlan.wfd.hdcp" "disable"
-
-# try to fix black cube
 SET_PROP "system" "ro.sf.lcd_density" "420"
 SET_PROP "system" "ro.config.main_camera_inset" "0"
 SET_PROP "system" "ro.config.front_camera_inset" "0"
@@ -99,3 +103,4 @@ SET_PROP "system" "persist.sys.home_drawer_cache_size" "32"
 SET_PROP "system" "persist.sys.home_grid_refresh_rate" "60"
 SET_PROP "system" "persist.sys.home_animation_boost" "1"
 SET_PROP "system" "persist.sys.home_fling_smooth" "1"
+echo "- Set props succesfully! "
