@@ -5,3 +5,4 @@ system/media/audio/ringtones 0 0 755 capabilities=0x0
 system/media/audio/ringtones/SoundTheme 0 0 755 capabilities=0x0
 system/media/audio/ringtones/SoundTheme/Galaxy 0 0 755 capabilities=0x0
 system/media/audio/ringtones/SoundTheme/Galaxy/Over_the_Horizon_2019.ogg 0 0 644 capabilities=0x0
+system/media/audio/ringtones/SoundTheme/Galaxy/Her_Nerdeysen 0 0 644 capabilities=0x0
