@@ -1,4 +1,4 @@
 id=legacy_stack
 name=Legacy stack application
-author=Tisenu100, Kianish675
-description=Readds 32-bit HALs from S23 FE (r11sxxx) & S21 FE (r9qxxx)
+author=Tisenu100
+description=Readds legacy components back for ARMv9 firmwares.
