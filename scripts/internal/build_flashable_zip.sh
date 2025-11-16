@@ -56,7 +56,7 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************************");'
     echo -n 'ui_print("'
-    echo -n "Welcome to KshROM Axion 1.6.5 for the Galaxy A70!"
+    echo -n "KshROM $ROM_CODENAME $ROM_VERSION for $TARGET_NAME"
     echo    '");'
     echo    'ui_print("KshROM Created by Kianish675 @XDAforums");'
     echo    'ui_print("Initial UN1CA build system coded by salvo_giangri @XDAforums");'
@@ -66,22 +66,19 @@ PRINT_HEADER()
     echo -n "One UI: $ONEUI_VERSION"
     echo    '");'
     echo -n 'ui_print("'
-    echo -n "Source: samsung/a73xqxx/qssi:15/AP3A.240905.015.A2/A736BXXSAFYH2:user/release-keys"
-    echo    '");'
-    echo -n 'ui_print("'
-    echo -n "Target: samsung/a70qxx/a70q:11/RP1A.200720.012/A705FNXXU5DXD2:user/release-keys"
-    echo    '");'
+    echo -n "Source: $(GET_PROP "ro.system.build.fingerprint" "$WORK_DIR/system/system/build.prop")"
+    echo -n 'ui_print'");'
     echo    'ui_print("****************************************************");'
-    echo    'ui_print("After installation, it is highly recommended to FORMAT DATA as follows:");'
+    echo    'ui_print("After installation, you should format your data to avoid issues.");'
     echo    'ui_print("     Factory Reset -> Format Data");'
     echo    'ui_print("Hint: Found Bugs? Report bugs at t.me/kshrom");'
     echo    'ui_print(" ");'
     echo    'ui_print("If you decide to not format, unexpected issues may occur and no support will be given.");'
     echo    'ui_print(" ");'
     echo    'ui_print("Proceeding with install..");'
-    echo    'ui_print("Checking device..");' 
-    echo    'ui_print("   -> Galaxy A70");'
-    echo    'ui_print("kianish is noob developer ez");'
+    echo    'ui_print("I AM NOT RESPONSIBLE FOR ANY DAMAGES TO YOUR DEVICE! YOU HAVE BEEN WANRED.");' 
+    echo    'ui_print("");'
+    echo    'ui_print("It should start patching now..");'
 } >> "$SCRIPT_FILE"
 
 GET_SPARSE_IMG_SIZE()
