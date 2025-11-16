@@ -79,4 +79,4 @@ jobs:
       - name: Build ROM
         run: |
           source ./buildenv.sh
-          ./scripts/make_rom.sh --no-rom-zip --no-rom-tar
+          ./scripts/make_rom.sh --no-rom-zip
