@@ -1,3 +1,8 @@
+echo "Removing current bluetooth Stack.. "
+DELETE_FROM_WORK_DIR "system" "system/apex/com.android.btservices.apex"
+echo "Adding bluetooth stack from A36 (a36xqnaxx).."
+ADD_TO_WORK_DIR "a36xqnaxx" "system" "system/apex/com.android.btservices.apex" 0 0 644 "u:object_r:system_file:s0"
+
 if [ ! -f "$WORK_DIR/system/system/lib64/libbluetooth_jni.so" ]; then
     [ -d "$TMP_DIR" ] && rm -rf "$TMP_DIR"
     mkdir -p "$TMP_DIR"
@@ -17,4 +22,4 @@ fi
 
 # https://github.com/3arthur6/BluetoothLibraryPatcher/blob/425bb59da6505c962a38c143137698849b01d470/hexpatch.sh#L12
 HEX_PATCH "$WORK_DIR/system/system/lib64/libbluetooth_jni.so" \
-    "00122a0140395f01086b00020054" "00122a0140395f01086bde030014"
+    "480500352800805228cb1e39" "2a0000142800805228cb1e39"
