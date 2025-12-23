@@ -6,4 +6,7 @@ system/etc/sysconfig/moments.xml 0 0 644 capabilities=0x0
 system/priv-app/SamsungSmartSuggestions 0 0 755 capabilities=0x0
 system/priv-app/SamsungSmartSuggestions/SamsungSmartSuggestions.apk 0 0 644 capabilities=0x0
 system/permissions/privapp_whitelist_com.samsung.android.app.moments.xml 0 0 644 capabilities=0x0
-
+system/app/SamsungAiCore 0 0 755 capabilities=0x0
+system/app/SketchBook 0 0 755 capabilities=0x0
+system/SamsungAiCore/SamsungAiCore.apk 0 0 644 capabilities=0x0
+system/SketchBook/Sketchbook.apk 0 0 644 capabilities=0x0

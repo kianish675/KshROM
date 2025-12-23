@@ -6,3 +6,7 @@
 /system/priv-app/SamsungSmartSuggestions u:object_r:system_file:s0
 /system/priv-app/SamsungSmartSuggestions/SamsungSmartSuggestions.apk u:object_r:system_file:s0
 system/etc/permissions/privapp_whitelist_com.samsung.android.app.moments.xml u:object_r:system_file:s0
+system/app/SamsungAiCore u:object_r:system_file:s0
+system/app/SketchBook u:object_r:system_file:s0
+system/SamsungAiCore/SamsungAiCore.apk u:object_r:system_file:s0
+system/SketchBook/Sketchbook.apk u:object_r:system_file:s0
